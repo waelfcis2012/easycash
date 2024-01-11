@@ -4,21 +4,21 @@ namespace App\Console\Commands;
  
 use Illuminate\Console\Command;
  
-class GenerateDummyTransactions extends Command
+class IndexTransactions extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'dummy-transactions:generate';
+    protected $signature = 'transactions:index';
  
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generate and save dummy transactions';
+    protected $description = 'Save transactions in DB';
 
     private $transactionService;
 
@@ -33,6 +33,6 @@ class GenerateDummyTransactions extends Command
      */
     public function handle(): void
     {
-        $this->transactionService->saveTransactionFiles();
+        $this->transactionService->indexTransactions();
     }
 }

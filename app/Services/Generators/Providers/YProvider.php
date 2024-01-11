@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Providers;
+namespace App\Services\Generators\Providers;
 
-use App\Services\Providers\AbstractProvider;
+use App\Services\Generators\Providers\AbstractProvider;
 
 class YProvider extends AbstractProvider
 {
