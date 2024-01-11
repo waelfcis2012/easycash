@@ -24,7 +24,7 @@ abstract class AbstractProvider
     }
 
     public function saveTransactionFiles() {
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 10000; $i++) {
             $data[] = [
                 static::KEY_AMOUNT => $this->gernerateAmount(),
                 static::KEY_CURRENCY => $this->gernerateCurrency(),
