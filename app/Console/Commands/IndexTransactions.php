@@ -22,7 +22,7 @@ class IndexTransactions extends Command
 
     private $transactionService;
 
-    public function __construct(\App\Services\Generators\TransactionService $transactionService)
+    public function __construct(\App\Services\Indexers\TransactionService $transactionService)
     {
         parent::__construct();
         $this->transactionService = $transactionService;
