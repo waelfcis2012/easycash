@@ -6,9 +6,9 @@ use App\Services\Indexers\Providers\AbstractProvider;
 
 class YProvider extends AbstractProvider
 {
-    protected $key = "Y";
+    protected String $key = "Y";
 
-    protected function getStatus($status) {
+    protected function getStatus(String $status): Int {
         switch($status) {
             case 100:
                 return 1;

@@ -12,7 +12,7 @@ class TransactionService
         $this->transactionRepository = $transactionRepository;
     }
 
-    public function indexTransactions() {
+    public function indexTransactions(): Void {
         $this->transactionRepository->clearTransactions();
         foreach(config("providers") as $provider) {
             app($provider["indexer"])->indexTransactions();

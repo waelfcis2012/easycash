@@ -6,9 +6,9 @@ use App\Services\Indexers\Providers\AbstractProvider;
 
 class WProvider extends AbstractProvider
 {
-    protected $key = "W";
+    protected String $key = "W";
 
-    protected function getStatus($status) {
+    protected function getStatus(string $status) : Int{
         switch($status) {
             case "done":
                 return 1;

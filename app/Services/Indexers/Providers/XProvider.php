@@ -6,9 +6,9 @@ use App\Services\Indexers\Providers\AbstractProvider;
 
 class XProvider extends AbstractProvider
 {
-    protected $key = "X";
+    protected String $key = "X";
 
-    protected function formatTransaction($transaction) {
+    protected function formatTransaction($transaction): Array {
         return [
             "amount" => $transaction->transactionAmount,
             "currency" => $transaction->Currency,
@@ -20,7 +20,7 @@ class XProvider extends AbstractProvider
         ];
     }
     
-    protected function getStatus($status) {
+    protected function getStatus(String $status): Int {
         switch($status) {
             case 1:
                 return 1;

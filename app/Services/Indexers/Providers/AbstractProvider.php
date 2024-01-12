@@ -15,11 +15,11 @@ abstract class AbstractProvider
     // const KEY_STATUS = "status";
     // const KEY_DATE = "created_at";
 
-    private $fileName;
+    private String $fileName;
     protected $faker;
-    protected $key;
-    private $storageService;
-    private $transactionRepository;
+    protected String $key;
+    private StorageService $storageService;
+    private TransactionRepository $transactionRepository;
 
     public function __construct(StorageService $storageService, TransactionRepository $transactionRepository)
     {
@@ -30,7 +30,7 @@ abstract class AbstractProvider
     }
 
 
-    public function indexTransactions() {
+    public function indexTransactions(): Void {
         $limit = config("transactions.save-limit");
         $transactionsChunks = $this->storageService->read($this->fileName);
         foreach ($transactionsChunks as $transaction) {
@@ -43,7 +43,7 @@ abstract class AbstractProvider
         $this->transactionRepository->save($formatedTransactions);
     }
 
-    protected function formatTransaction($transaction) {
+    protected function formatTransaction($transaction): Array {
         return [
             "amount" => $transaction->amount,
             "currency" => $transaction->currency,
@@ -55,5 +55,5 @@ abstract class AbstractProvider
         ];
     }
 
-    abstract protected function getStatus($status);
+    abstract protected function getStatus(String $status): Int;
 }
