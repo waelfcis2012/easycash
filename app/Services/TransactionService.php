@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\TransactionRepository;
 use App\DTO\GetTransactionDTO;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class TransactionService 
 {
@@ -14,7 +15,7 @@ class TransactionService
         $this->transactionRepository = $transactionRepository;
     }
 
-    public function getTransactions(GetTransactionDTO $dto) {
+    public function getTransactions(GetTransactionDTO $dto): LengthAwarePaginator{
         return $this->transactionRepository->getTransactions($dto);
     }
 }
