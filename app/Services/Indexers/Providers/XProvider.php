@@ -21,14 +21,14 @@ class XProvider extends AbstractProvider
         ];
     }
     
-    protected function getStatus(String $status): TransactionStatusEnum {
+    protected function getStatus(String $status): Int {
         switch($status) {
             case 1:
-                return TransactionStatusEnum::PAID;
+                return TransactionStatusEnum::PAID->value;
             case 2:
-                return TransactionStatusEnum::PENDING;
+                return TransactionStatusEnum::PENDING->value;
             case 3:
-                return TransactionStatusEnum::FAILED;
+                return TransactionStatusEnum::FAILED->value;
             }
     }
 }

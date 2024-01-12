@@ -9,14 +9,14 @@ class WProvider extends AbstractProvider
 {
     protected String $key = "W";
 
-    protected function getStatus(string $status) : TransactionStatusEnum{
+    protected function getStatus(string $status) : Int{
         switch($status) {
             case "done":
-                return TransactionStatusEnum::PAID;
+                return TransactionStatusEnum::PAID->value;
             case "wait":
-                return TransactionStatusEnum::PENDING;
+                return TransactionStatusEnum::PENDING->value;
             case "nope":
-                return TransactionStatusEnum::FAILED;
+                return TransactionStatusEnum::FAILED->value;
             }
     }
 }

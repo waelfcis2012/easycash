@@ -4,7 +4,6 @@ namespace App\Services\Indexers\Providers;
 
 use App\Services\StorageService;
 use App\Repositories\TransactionRepository;
-use App\Enums\TransactionStatusEnum;
 
 abstract class AbstractProvider 
 {
@@ -48,5 +47,5 @@ abstract class AbstractProvider
         ];
     }
 
-    abstract protected function getStatus(String $status): TransactionStatusEnum;
+    abstract protected function getStatus(String $status): Int;
 }

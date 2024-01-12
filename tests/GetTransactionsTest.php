@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Illuminate\Http\Response;
+use App\Enums\TransactionStatusEnum;
 
 class GetTransactionsTest extends TestCase
 {
@@ -42,14 +43,24 @@ class GetTransactionsTest extends TestCase
         $this->assertOnField($data, "currency", "USD");
     }
 
-    public function test_filter_by_status()
+    public function test_filter_by_status_paid()
     {
         $this->get('/api/v1/transactaions?statusCode=paid');
         $this->assertOnSuccess();
         $this->assertPagination($this->response->getData()->result);
         $data = $this->response->getData()->result->data;
         $this->assertOnData($data);
-        $this->assertOnField($data, "status", 1);
+        $this->assertOnField($data, "status", TransactionStatusEnum::PAID->value);
+    }
+
+    public function test_filter_by_status_pending()
+    {
+        $this->get('/api/v1/transactaions?statusCode=pending');
+        $this->assertOnSuccess();
+        $this->assertPagination($this->response->getData()->result);
+        $data = $this->response->getData()->result->data;
+        $this->assertOnData($data);
+        $this->assertOnField($data, "status", TransactionStatusEnum::PENDING->value);
     }
 
     public function test_filter_by_amount()

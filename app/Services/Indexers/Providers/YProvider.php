@@ -9,14 +9,14 @@ class YProvider extends AbstractProvider
 {
     protected String $key = "Y";
 
-    protected function getStatus(String $status): TransactionStatusEnum {
+    protected function getStatus(String $status): Int {
         switch($status) {
             case 100:
-                return TransactionStatusEnum::PAID;
+                return TransactionStatusEnum::PAID->value;
             case 200:
-                return TransactionStatusEnum::PENDING;
+                return TransactionStatusEnum::PENDING->value;
             case 300:
-                return TransactionStatusEnum::FAILED;
+                return TransactionStatusEnum::FAILED->value;
             }
     }
 
