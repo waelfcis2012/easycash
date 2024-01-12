@@ -44,7 +44,7 @@ class GetTransactionsTest extends TestCase
 
     public function test_filter_by_status()
     {
-        $this->get('/api/v1/transactaions?status=paid');
+        $this->get('/api/v1/transactaions?statusCode=paid');
         $this->assertOnSuccess();
         $this->assertPagination($this->response->getData()->result);
         $data = $this->response->getData()->result->data;
