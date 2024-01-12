@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GetTransactionsRequest;
 use App\Services\TransactionService;
 
 class TransactionController extends Controller
@@ -19,7 +20,7 @@ class TransactionController extends Controller
         $this->transactionService = $transactionService;
     }
 
-    public function index() {
+    public function index(GetTransactionsRequest $request) {
         return $this->transactionService->getTransactions();
     }
 
