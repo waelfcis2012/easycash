@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use App\Services\ResponseService;
+use Illuminate\Http\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -49,6 +51,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        return parent::render($request, $exception);
+        $responseService = new ResponseService();
+        switch(get_class($exception)) {
+            case "Illuminate\Validation\ValidationException" :
+                return $responseService->getErrorResponse($exception->status, $exception->getMessage(), $exception->validator->errors()->messages());
+            case "Symfony\Component\HttpKernel\Exception\NotFoundHttpException" :
+                return $responseService->getErrorResponse($exception->getStatusCode(), "Route not found");
+            default :
+                return $responseService->getErrorResponse(Response::HTTP_INTERNAL_SERVER_ERROR, "Unknown Error");
+        }
     }
 }
