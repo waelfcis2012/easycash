@@ -31,11 +31,11 @@ abstract class AbstractProvider
 
 
     public function indexTransactions() {
-        
+        $limit = config("transactions.save-limit");
         $transactionsChunks = $this->storageService->read($this->fileName);
         foreach ($transactionsChunks as $transaction) {
             $formatedTransactions[] = $this->formatTransaction($transaction);
-            if(count($formatedTransactions) === 1000) {
+            if(count($formatedTransactions) === $limit) {
                 $this->transactionRepository->save($formatedTransactions);
                 $formatedTransactions = [];
             }
