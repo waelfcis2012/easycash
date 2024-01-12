@@ -11,7 +11,7 @@ class ResponseService
      * @return \Illuminate\Http\JsonResponse
      */
     public function getSuccessResponse($data = "", $extraInfo = null) {
-        $result = array('status' => 1, 'data' => $data);
+        $result = array('status' => 1, 'result' => $data);
         if (!is_null($extraInfo)) {
             $result['extra_info'] = $extraInfo;
         }

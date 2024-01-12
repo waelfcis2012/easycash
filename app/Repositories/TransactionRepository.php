@@ -34,6 +34,6 @@ class TransactionRepository
             $query->where("currency", $dto->currency);
         }
         // dd($dto->provider);
-        return $query->paginate();
+        return $query->paginate(config("transactions.per-page"));
     }
 }
