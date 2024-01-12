@@ -32,7 +32,7 @@ abstract class AbstractProvider
 
     public function indexTransactions() {
         
-        $transactionsChunks = Items::fromFile(\Storage::path($this->fileName));
+        $transactionsChunks = $this->storageService->read($this->fileName);
         foreach ($transactionsChunks as $transaction) {
             $formatedTransactions[] = $this->formatTransaction($transaction);
             if(count($formatedTransactions) === 1000) {
@@ -40,7 +40,7 @@ abstract class AbstractProvider
                 $formatedTransactions = [];
             }
         }
-         $this->transactionRepository->save($formatedTransactions);
+        $this->transactionRepository->save($formatedTransactions);
     }
 
     protected function formatTransaction($transaction) {
