@@ -13,7 +13,7 @@ class XProvider extends AbstractProvider
     const KEY_STATUS = "transactionStatus";
     const KEY_DATE = "transactionDate";
 
-    protected $fileName = 'DataProviderX.json';
+    protected $key = "X";
 
     protected function gernerateId(){
         return $this->faker->uuid();

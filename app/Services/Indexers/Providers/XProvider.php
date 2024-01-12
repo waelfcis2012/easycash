@@ -6,7 +6,7 @@ use App\Services\Indexers\Providers\AbstractProvider;
 
 class XProvider extends AbstractProvider
 {
-    protected $fileName = 'DataProviderX.json';
+    protected $key = "X";
 
     protected function formatTransaction($transaction) {
         return [

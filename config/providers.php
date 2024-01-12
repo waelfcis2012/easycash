@@ -1,18 +1,18 @@
 <?php
 
 return [
-    'w' => [
-        "file" => "",
+    'W' => [
+        "file" => "DataProviderW.json",
         "generator" =>  \App\Services\Generators\Providers\WProvider::class,
         "indexer" => \App\Services\Indexers\Providers\WProvider::class,
     ],
-    'x' => [
-        "file" => "",
+    'X' => [
+        "file" => "DataProviderX.json",
         "generator" =>  \App\Services\Generators\Providers\XProvider::class,
         "indexer" => \App\Services\Indexers\Providers\XProvider::class
     ],
-    'y' => [
-        "file" => "",
+    'Y' => [
+        "file" => "DataProviderY.json",
         "generator" =>  \App\Services\Generators\Providers\YProvider::class,
         "indexer" => \App\Services\Indexers\Providers\YProvider::class,
     ],

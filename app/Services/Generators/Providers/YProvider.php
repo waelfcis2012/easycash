@@ -6,7 +6,7 @@ use App\Services\Generators\Providers\AbstractProvider;
 
 class YProvider extends AbstractProvider
 {
-    protected $fileName = 'DataProviderY.json';
+    protected $key = "Y";
 
     protected function gernerateId(){
         return $this->faker->regexify('[a-z0-9]{4}-[a-z0-9]{4}');

@@ -6,7 +6,7 @@ use App\Services\Generators\Providers\AbstractProvider;
 
 class WProvider extends AbstractProvider
 {
-    protected $fileName = 'DataProviderW.json';
+    protected $key = "W";
     
     protected function gernerateId(){
         return $this->faker->unique()->numerify("########");

@@ -13,14 +13,17 @@ abstract class AbstractProvider
     const KEY_STATUS = "status";
     const KEY_DATE = "created_at";
 
-    protected $fileName;
+    private $fileName;
     protected $faker;
+    protected $key;
     private $storageService;
 
     public function __construct(StorageService $storageService)
     {
         $this->storageService = $storageService;
         $this->faker = \Faker\Factory::create();
+        dump(config("providers." . $this->key . ".file"));
+        $this->fileName = config("providers." . $this->key . ".file");
     }
 
     public function saveTransactionFiles() {

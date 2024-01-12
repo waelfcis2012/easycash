@@ -6,7 +6,7 @@ use App\Services\Indexers\Providers\AbstractProvider;
 
 class YProvider extends AbstractProvider
 {
-    protected $fileName = 'DataProviderY.json';
+    protected $key = "Y";
 
     protected function getStatus($status) {
         switch($status) {

@@ -6,7 +6,7 @@ use App\Services\Indexers\Providers\AbstractProvider;
 
 class WProvider extends AbstractProvider
 {
-    protected $fileName = 'DataProviderW.json';
+    protected $key = "W";
 
     protected function getStatus($status) {
         switch($status) {

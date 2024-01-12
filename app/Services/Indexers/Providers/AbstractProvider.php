@@ -15,8 +15,9 @@ abstract class AbstractProvider
     // const KEY_STATUS = "status";
     // const KEY_DATE = "created_at";
 
-    protected $fileName;
+    private $fileName;
     protected $faker;
+    protected $key;
     private $storageService;
     private $transactionRepository;
 
@@ -25,6 +26,7 @@ abstract class AbstractProvider
         $this->storageService = $storageService;
         $this->transactionRepository = $transactionRepository;
         $this->faker = \Faker\Factory::create();
+        $this->fileName = config("providers." . $this->key . ".file");
     }
 
 
