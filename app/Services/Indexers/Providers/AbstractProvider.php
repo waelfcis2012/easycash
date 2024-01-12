@@ -50,7 +50,7 @@ abstract class AbstractProvider
             "phone" => $transaction->phone,
             "status" => $this->getStatus($transaction->status),
             "transaction_id" => $transaction->id,
-            "provider_id" => 1,
+            "provider" => $this->key,
             "created_at" => $transaction->created_at,
         ];
     }

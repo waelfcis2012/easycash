@@ -20,9 +20,7 @@ return new class extends Migration
                 $table->smallInteger('status');
                 $table->string('transaction_id');
                 $table->dateTime('created_at');
-                $table->unsignedBigInteger('provider_id');
-
-                $table->foreign('provider_id')->references('id')->on('providers');
+                $table->char('provider', 1);
             });
         }
     }

@@ -15,7 +15,7 @@ class XProvider extends AbstractProvider
             "phone" => $transaction->senderPhone,
             "status" => $this->getStatus($transaction->transactionStatus),
             "transaction_id" => $transaction->transactionIdentification,
-            "provider_id" => 1,
+            "provider" => $this->key,
             "created_at" => $transaction->transactionDate,
         ];
     }
