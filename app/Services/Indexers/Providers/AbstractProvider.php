@@ -4,17 +4,10 @@ namespace App\Services\Indexers\Providers;
 
 use App\Services\StorageService;
 use App\Repositories\TransactionRepository;
-use \JsonMachine\Items;
+use App\Enums\TransactionStatusEnum;
 
 abstract class AbstractProvider 
 {
-    // const KEY_ID = "id";
-    // const KEY_AMOUNT = "amount";
-    // const KEY_CURRENCY = "currency";
-    // const KEY_PHONE = "phone";
-    // const KEY_STATUS = "status";
-    // const KEY_DATE = "created_at";
-
     private String $fileName;
     protected $faker;
     protected String $key;
@@ -55,5 +48,5 @@ abstract class AbstractProvider
         ];
     }
 
-    abstract protected function getStatus(String $status): Int;
+    abstract protected function getStatus(String $status): TransactionStatusEnum;
 }

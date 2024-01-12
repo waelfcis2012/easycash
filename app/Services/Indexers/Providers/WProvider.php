@@ -3,19 +3,20 @@
 namespace App\Services\Indexers\Providers;
 
 use App\Services\Indexers\Providers\AbstractProvider;
+use App\Enums\TransactionStatusEnum;
 
 class WProvider extends AbstractProvider
 {
     protected String $key = "W";
 
-    protected function getStatus(string $status) : Int{
+    protected function getStatus(string $status) : TransactionStatusEnum{
         switch($status) {
             case "done":
-                return 1;
+                return TransactionStatusEnum::PAID;
             case "wait":
-                return 0;
+                return TransactionStatusEnum::PENDING;
             case "nope":
-                return -1;
+                return TransactionStatusEnum::FAILED;
             }
     }
 }

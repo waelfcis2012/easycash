@@ -3,6 +3,7 @@
 namespace App\Services\Indexers\Providers;
 
 use App\Services\Indexers\Providers\AbstractProvider;
+use App\Enums\TransactionStatusEnum;
 
 class XProvider extends AbstractProvider
 {
@@ -20,14 +21,14 @@ class XProvider extends AbstractProvider
         ];
     }
     
-    protected function getStatus(String $status): Int {
+    protected function getStatus(String $status): TransactionStatusEnum {
         switch($status) {
             case 1:
-                return 1;
+                return TransactionStatusEnum::PAID;
             case 2:
-                return 0;
+                return TransactionStatusEnum::PENDING;
             case 3:
-                return -1;
+                return TransactionStatusEnum::FAILED;
             }
     }
 }
