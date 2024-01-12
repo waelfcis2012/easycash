@@ -22,12 +22,12 @@ abstract class AbstractProvider
     {
         $this->storageService = $storageService;
         $this->faker = \Faker\Factory::create();
-        dump(config("providers." . $this->key . ".file"));
         $this->fileName = config("providers." . $this->key . ".file");
     }
 
     public function saveTransactionFiles() {
-        for ($i = 0; $i < 10005; $i++) {
+        $count = config("transactions.json-file-size");
+        for ($i = 0; $i < $count; $i++) {
             $data[] = [
                 static::KEY_AMOUNT => $this->gernerateAmount(),
                 static::KEY_CURRENCY => $this->gernerateCurrency(),
