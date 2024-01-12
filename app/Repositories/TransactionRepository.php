@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Transaction;
+use App\DTO\GetTransactionDTO;
 
 class TransactionRepository
 {
@@ -14,7 +15,25 @@ class TransactionRepository
         Transaction::Truncate();
     }
 
-    public function getTransactions() {
-        return Transaction::paginate();
+    public function getTransactions(GetTransactionDTO $dto) {
+        $query = Transaction::query();
+        
+        if (isset($dto->provider) === true) {
+            $query->where("provider", $dto->provider);
+        }
+        if (isset($dto->status) === true) {
+            $query->where("status", $dto->status);
+        }
+        if (isset($dto->min) === true) {
+            $query->where("amount", ">=", $dto->min);
+        }
+        if (isset($dto->max) === true) {
+            $query->where("amount", "<=", $dto->max);
+        }
+        if (isset($dto->currency) === true) {
+            $query->where("currency", $dto->currency);
+        }
+        // dd($dto->provider);
+        return $query->paginate();
     }
 }

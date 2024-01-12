@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\TransactionRepository;
+use App\DTO\GetTransactionDTO;
 
 class TransactionService 
 {
@@ -13,7 +14,7 @@ class TransactionService
         $this->transactionRepository = $transactionRepository;
     }
 
-    public function getTransactions() {
-        return $this->transactionRepository->getTransactions();
+    public function getTransactions(GetTransactionDTO $dto) {
+        return $this->transactionRepository->getTransactions($dto);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GetTransactionsRequest;
 use App\Services\TransactionService;
+use App\DTO\GetTransactionDTO;
 
 class TransactionController extends Controller
 {
@@ -21,7 +22,12 @@ class TransactionController extends Controller
     }
 
     public function index(GetTransactionsRequest $request) {
-        return $this->transactionService->getTransactions();
+        $dto = new GetTransactionDTO($request->params["provider"] ?? null, 
+            $request->params["statusCode"] ?? null, 
+            $request->params["amounteMin"] ?? null, 
+            $request->params["amounteMax"] ?? null, 
+            $request->params["currency"] ?? null);
+        return $this->transactionService->getTransactions($dto);
     }
 
     //
