@@ -15,22 +15,22 @@ class XProvider extends AbstractProvider
 
     protected $key = "X";
 
-    protected function gernerateId(){
+    protected function gernerateId(): String{
         return $this->faker->uuid();
     }
-    protected function gernerateAmount(){
+    protected function gernerateAmount(): Float{
         return $this->faker->randomFloat('0', 0, 1000);
     }
-    protected function gernerateCurrency(){
+    protected function gernerateCurrency(): String{
         return 'USD';
     }
-    protected function gerneratePhone(){
+    protected function gerneratePhone(): String{
         return $this->faker->phoneNumber;
     }
-    protected function gernerateStatus(){
+    protected function gernerateStatus(): String {
         return $this->faker->randomElement([1, 2, 3]);
     }
-    protected function gernerateDate(){
+    protected function gernerateDate(): String{
         return $this->faker->dateTime()->format('Y-m-d H:i:s');
     }
 }

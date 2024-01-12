@@ -25,7 +25,7 @@ abstract class AbstractProvider
         $this->fileName = config("providers." . $this->key . ".file");
     }
 
-    public function saveTransactionFiles() {
+    public function saveTransactionFiles(): void {
         $count = config("transactions.json-file-size");
         for ($i = 0; $i < $count; $i++) {
             $data[] = [
@@ -40,10 +40,10 @@ abstract class AbstractProvider
         $this->storageService->save($this->fileName, json_encode($data));
     }
 
-    abstract protected function gernerateId();
-    abstract protected function gernerateAmount();
-    abstract protected function gernerateCurrency();
-    abstract protected function gerneratePhone();
-    abstract protected function gernerateStatus();
-    abstract protected function gernerateDate();
+    abstract protected function gernerateId(): String;
+    abstract protected function gernerateAmount(): Float;
+    abstract protected function gernerateCurrency(): String;
+    abstract protected function gerneratePhone(): String;
+    abstract protected function gernerateStatus(): String;
+    abstract protected function gernerateDate(): String;
 }
