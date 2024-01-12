@@ -4,7 +4,7 @@ namespace Tests;
 
 use Illuminate\Http\Response;
 
-class ExampleTest extends TestCase
+class GetTransactionsTest extends TestCase
 {
     public function test_get_page_1()
     {

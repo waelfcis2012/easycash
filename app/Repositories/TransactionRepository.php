@@ -33,7 +33,6 @@ class TransactionRepository
         if (isset($dto->currency) === true) {
             $query->where("currency", $dto->currency);
         }
-        // dd($dto->provider);
         return $query->paginate(config("transactions.per-page"));
     }
 }
