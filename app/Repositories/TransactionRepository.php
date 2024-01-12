@@ -13,4 +13,8 @@ class TransactionRepository
     public function clearTransactions() {
         Transaction::Truncate();
     }
+
+    public function getTransactions() {
+        return Transaction::paginate();
+    }
 }

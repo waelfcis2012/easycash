@@ -11,7 +11,7 @@ class GenerateDummyTransactions extends Command
      *
      * @var string
      */
-    protected $signature = 'dummy-transactions:generate';
+    protected $signature = 'transactions:generate';
  
     /**
      * The console command description.
