@@ -7,4 +7,15 @@ use App\Services\Indexers\Providers\AbstractProvider;
 class WProvider extends AbstractProvider
 {
     protected $fileName = 'DataProviderW.json';
+
+    protected function getStatus($status) {
+        switch($status) {
+            case "done":
+                return 1;
+            case "wait":
+                return 0;
+            case "nope":
+                return -1;
+            }
+    }
 }

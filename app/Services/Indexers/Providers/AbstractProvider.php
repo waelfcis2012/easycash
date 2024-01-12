@@ -29,7 +29,7 @@ abstract class AbstractProvider
 
 
     public function indexTransactions() {
-        $this->transactionRepository->clearTransactions();
+        
         $transactionsChunks = Items::fromFile(\Storage::path($this->fileName));
         foreach ($transactionsChunks as $transaction) {
             $formatedTransactions[] = $this->formatTransaction($transaction);
@@ -46,10 +46,12 @@ abstract class AbstractProvider
             "amount" => $transaction->amount,
             "currency" => $transaction->currency,
             "phone" => $transaction->phone,
-            "status" => 0,
+            "status" => $this->getStatus($transaction->status),
             "transaction_id" => $transaction->id,
             "provider_id" => 1,
             "created_at" => $transaction->created_at,
         ];
     }
+
+    abstract protected function getStatus($status);
 }

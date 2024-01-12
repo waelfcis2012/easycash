@@ -8,4 +8,15 @@ class YProvider extends AbstractProvider
 {
     protected $fileName = 'DataProviderY.json';
 
+    protected function getStatus($status) {
+        switch($status) {
+            case 100:
+                return 1;
+            case 200:
+                return 0;
+            case 300:
+                return -1;
+            }
+    }
+
 }
