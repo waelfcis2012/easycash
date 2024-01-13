@@ -19,7 +19,7 @@ Please find the below descriptions:
 
 ## EndPoint Example
 
-**GET** http://localhost:8000/api/v1/transactaions\
+**GET** http://localhost:8000/api/v1/transactaions   \
 **Filters:** [provider, statusCode, amounteMin, amounteMax, currency]\
 **Response is paginated** (**15 per pag**e - can be configured from **config/transactions.php**)\
 
