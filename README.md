@@ -6,7 +6,7 @@ Please find the below descriptions:
 
 1- Clone the project
 2- Run composer install
-3- Alter your .env file with your mysql configuration
+3- Alter your .env file with your MySQL configuration
 4- Run php artisan migrate
 5- Run php artisan transactions:generate
 6- Run php artisan transactions:index
@@ -14,8 +14,8 @@ Please find the below descriptions:
 
 ## Solution
 
-1- **php artisan transactions:generate** will create 3 large json files (with the desired name) each will have **10000 entries** (can be configured from **config/transactions.php**) the files will be placed in **storage/app/***.
-2- **php artisan transactions:index** will read the json files (in chunks to save memory for huge files), unify the json structure, and save them in DB (I chose this solution to remove the heavy-lifitng from the get transaction request endpoint - it get the response in around **17ms**).
+1- **php artisan transactions:generate** will create 3 large JSON files (with the desired name) each will have **10000 entries** (can be configured from **config/transactions.php**) the files will be placed in **storage/app/***.
+2- **php artisan transactions:index** will read the JSON files (in chunks to save memory for huge files), unify the JSON structure, and save them in DB (I chose this solution to remove the heavy-lifting from the get transaction request endpoint - it get the response in around **17ms**).
 
 ## EndPoint Example
 
