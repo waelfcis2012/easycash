@@ -27,9 +27,9 @@ Please find the below descriptions:
 https://drive.google.com/file/d/1qfXKdirJYTXkxrkRK7J6NO3V-ZiH5PqW/view?usp=sharing
 
 ## Adding A Provider
-1- create a generator class (which extends the abstract class) to generate th JSON file (override the propertis as you want)\
-2- create an indexer class (which extends the abstract class) to generate th JSON file (override the propertis as you want)\
-3- add the new provider in config\providers \
+1- create a **generator class** (which extends the abstract class) to generate th JSON file (override the propertis as you want)\
+2- create an **indexer class** (which extends the abstract class) to generate th JSON file (override the propertis as you want)\
+3- add the new provider in **config/providers** \
 4- modify the request class' validation for the new values\
 ## Test
 To run test cases: run **./vendor/bin/phpunit**
