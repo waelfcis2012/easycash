@@ -4,13 +4,13 @@ Please find the below descriptions:
 
 ## Installation
 
-1- Clone the project
-2- Run composer install
-3- Alter your .env file with your MySQL configuration
-4- Run php artisan migrate
-5- Run php artisan transactions:generate
-6- Run php artisan transactions:index
-7- Run php -S 0.0.0.0:8000 -t public
+1- Clone the project\
+2- Run composer install\
+3- Alter your .env file with your MySQL configuration\
+4- Run php artisan migrate\
+5- Run php artisan transactions:generate\
+6- Run php artisan transactions:index\
+7- Run php -S 0.0.0.0:8000 -t public\
 
 ## Solution
 
@@ -19,9 +19,9 @@ Please find the below descriptions:
 
 ## EndPoint Example
 
-**GET** http://localhost:8000/api/v1/transactaions
-**Filters:** [provider, statusCode, amounteMin, amounteMax, currency]
-**Response is paginated** (**15 per pag**e - can be configured from **config/transactions.php**)
+**GET** http://localhost:8000/api/v1/transactaions\
+**Filters:** [provider, statusCode, amounteMin, amounteMax, currency]\
+**Response is paginated** (**15 per pag**e - can be configured from **config/transactions.php**)\
 
 ## Digram
 https://drive.google.com/file/d/1qfXKdirJYTXkxrkRK7J6NO3V-ZiH5PqW/view?usp=sharing
