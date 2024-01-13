@@ -1,26 +1,31 @@
-# Lumen PHP Framework
+# EasyCash Task
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
+Please find the below descriptions:
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Installation
 
-> **Note:** In the years since releasing Lumen, PHP has made a variety of wonderful performance improvements. For this reason, along with the availability of [Laravel Octane](https://laravel.com/docs/octane), we no longer recommend that you begin new projects with Lumen. Instead, we recommend always beginning new projects with [Laravel](https://laravel.com).
+1- Clone the project
+2- Run composer install
+3- Alter your .env file with your mysql configuration
+4- Run php artisan migrate
+5- Run php artisan transactions:generate
+6- Run php artisan transactions:index
+7- Run php -S 0.0.0.0:8000 -t public
 
-## Official Documentation
+## Solution
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+1- **php artisan transactions:generate** will create 3 large json files (with the desired name) each will have **10000 entries** (can be configured from **config/transactions.php**) the files will be placed in **storage/app/***.
+2- **php artisan transactions:index** will read the json files (in chunks to save memory for huge files), unify the json structure, and save them in DB (I chose this solution to remove the heavy-lifitng from the get transaction request endpoint - it get the response in around **17ms**).
 
-## Contributing
+## EndPoint Example
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**GET** http://localhost:8000/api/v1/transactaions
+**Filters:** [provider, statusCode, amounteMin, amounteMax, currency]
+**Response is paginated** (**15 per pag**e - can be configured from **config/transactions.php**)
 
-## Security Vulnerabilities
+## Digram
+https://drive.google.com/file/d/1qfXKdirJYTXkxrkRK7J6NO3V-ZiH5PqW/view?usp=sharing
+## Test
+To run test cases: run **./vendor/bin/phpunit**
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Containrizaion is available
