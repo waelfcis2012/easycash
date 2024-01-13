@@ -23,7 +23,7 @@ Please find the below descriptions:
 **Filters:** [provider, statusCode, amounteMin, amounteMax, currency]\
 **Response is paginated** (**15 per pag**e - can be configured from **config/transactions.php**)
 
-## Digram
+## Diagram
 https://drive.google.com/file/d/1qfXKdirJYTXkxrkRK7J6NO3V-ZiH5PqW/view?usp=sharing
 
 ## Adding A Provider
